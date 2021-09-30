@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SGPA & CGPA Calculator</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #b2b2ff;
+        }
+        .sgpa, .cgpa{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #222;
+        }
+        .form-row {
+            margin: 10px;
+        }
+        .form-row input {
+            width: 200px;
+            padding: 5px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sgpa">
+        <h1>SGPA</h1>
+        <p>Calculate your <q>sem-wise SGPA</q></p>
+        <form>
+            <div class="form-row">
+                <span>Theory X1</span>
+                <input type="number" placeholder="CI" id="CI1">
+                <input type="number" placeholder="GI" id="GI1">
+            </div>
+            <div class="form-row">
+                <span>Theory X2</span>
+                <input type="number" placeholder="CI" id="CI2">
+                <input type="number" placeholder="GI" id="GI2">
+            </div>
+            <div class="form-row">
+                <span>Theory X3</span>
+                <input type="number" placeholder="CI" id="CI3">
+                <input type="number" placeholder="GI" id="GI3">
+            </div>
+            <div class="form-row">
+                <span>Theory X4</span>
+                <input type="number" placeholder="CI" id="CI4">
+                <input type="number" placeholder="GI" id="GI4">
+            </div>
+            <div class="form-row">
+                <span>Theory X5</span>
+                <input type="number" placeholder="CI" id="CI5">
+                <input type="number" placeholder="GI" id="GI5">
+            </div>
+            <div class="form-row">
+                <span>Theory X6</span>
+                <input type="number" placeholder="CI" id="CI6">
+                <input type="number" placeholder="GI" id="GI6">
+            </div>
+            <div class="form-row">
+                <span>Lab X7</span>
+                <input type="number" placeholder="CI" id="CI7">
+                <input type="number" placeholder="GI" id="GI7">
+            </div>
+            <div class="form-row">
+                <span>Lab X8</span>
+                <input type="number" placeholder="CI" id="CI8">
+                <input type="number" placeholder="GI" id="GI8">
+            </div>
+            <button onclick="calcsgpa()" id="btn">Calculate</button>
+        </form>
+        <p id="sgpa"></p>
+    </div>
+</div>
+<script>
+document.getElementById("btn").addEventListener("click", function(event){
+  event.preventDefault()
+});
+    function calcsgpa() {
+        const CI1 = parseInt(document.getElementById("CI1").value);
+        const CI2 = parseInt(document.getElementById("CI2").value);
+        const CI3 = parseInt(document.getElementById("CI3").value);
+        const CI4 = parseInt(document.getElementById("CI4").value);
+        const CI5 = parseInt(document.getElementById("CI5").value);
+        const CI6 = parseInt(document.getElementById("CI6").value);
+        const CI7 = parseInt(document.getElementById("CI7").value);
+        const CI8 = parseInt(document.getElementById("CI8").value);
+        const GI1 = parseInt(document.getElementById("GI1").value);
+        const GI2 = parseInt(document.getElementById("GI2").value);
+        const GI3 = parseInt(document.getElementById("GI3").value);
+        const GI4 = parseInt(document.getElementById("GI4").value);
+        const GI5 = parseInt(document.getElementById("GI5").value);
+        const GI6 = parseInt(document.getElementById("GI6").value);
+        const GI7 = parseInt(document.getElementById("GI7").value);
+        const GI8 = parseInt(document.getElementById("GI8").value);
+
+        var totalCI = CI1+CI2+CI3+CI4+CI5+CI6+CI7+CI8;
+        var totalCIxGI = (CI1*GI1)+(CI2*GI2)+(CI3*GI3)+(CI4*GI4)+(CI5*GI5)+(CI6*GI6)+(CI7*GI7)+(CI8*GI8);
+        var sgpa = (totalCIxGI/totalCI);
+        document.getElementById("sgpa").innerHTML = "Your SGPA is "+sgpa;
+    }
+</script>
+</body>
+</html>
